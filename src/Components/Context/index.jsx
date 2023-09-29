@@ -50,7 +50,6 @@ export  const ShoppingCartProvider = ({children}) => {
     }
 
     const filteredItemsByCategory = (items, searchByCategory) => {
-        console.log('items:', items)
         return items?.filter(item => item.category.toLowerCase().includes(searchByCategory.toLowerCase()))
     }
 
@@ -75,8 +74,6 @@ export  const ShoppingCartProvider = ({children}) => {
         if(!searchByTitle && searchByCategory) setFiltereditems(filteredBy('BY_CATEGORY',items, searchByTitle, searchByCategory))
         if(!searchByTitle && !searchByCategory) setFiltereditems(filteredBy(null,items, searchByTitle, searchByCategory))
       },[items, searchByTitle, searchByCategory])
-
-      console.log('filtereditems:', filtereditems)
 
     return (
         <ShoppingCartContext.Provider value={{

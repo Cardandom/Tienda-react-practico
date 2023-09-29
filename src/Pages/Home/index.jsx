@@ -8,7 +8,6 @@ function Home() {
   const context = useContext(ShoppingCartContext)
 
   const renderViwe = () => {
-    if(context.searchByTitle?.length>0) {
       if(context.filtereditems?.length>0){
         return (
           context.filtereditems?.map((item) => (
@@ -20,14 +19,7 @@ function Home() {
           <div>We don`t have anything</div>
         )
       }
-    } else {
-      return (
-        context.items?.map((item) => (
-        <Card key={item.id} data={item} />
-      ))
-      )
     }
-  }
 
   return (
     <Layout>
@@ -49,5 +41,4 @@ function Home() {
     </Layout>
   );
 }
-
 export default Home;
