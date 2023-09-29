@@ -5,7 +5,29 @@ import ProductDetail from "../../Components/ProductDetail";
 import { ShoppingCartContext } from "../../Components/Context";
 
 function Home() {
-  const context = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext)
+
+  const renderViwe = () => {
+    if(context.searchByTitle?.length>0) {
+      if(context.filtereditems?.length>0){
+        return (
+          context.filtereditems?.map((item) => (
+            <Card key={item.id} data={item} />
+          ))
+        )
+      } else {
+        return (
+          <div>We don`t have anything</div>
+        )
+      }
+    } else {
+      return (
+        context.items?.map((item) => (
+        <Card key={item.id} data={item} />
+      ))
+      )
+    }
+  }
 
   return (
     <Layout>
@@ -19,9 +41,9 @@ function Home() {
         onChange={(event)=> context.setSearchByTitle(event.target.value)}
       />
       <div className="grid gap-8 grid-cols-4 w-full max-w-screen-lg">
-        {context.items?.map((item) => (
-          <Card key={item.id} data={item} />
-        ))}
+        {
+          renderViwe()
+        }
       </div>
       <ProductDetail />
     </Layout>
