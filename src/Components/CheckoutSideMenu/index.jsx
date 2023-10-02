@@ -52,7 +52,7 @@ const CheckoutSideMenu = () => {
       <div className="px-6 mb-6">
         <p className="flex justify-between items-center p-3">
             <span className="font-normal">Total:</span>
-            <span className="font-bold text-lg">${totalPrice(context.cartProducts)}</span>
+            <span className="font-bold text-lg">${totalPrice(context.cartProducts).toFixed(2)}</span>
         </p>
         <Link to="/my-orders/last">
             <button className="bg-black py-3 text-white w-full font-medium rounded-lg" onClick={() => handleCheckout()}>Checkout</button>

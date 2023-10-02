@@ -29,10 +29,10 @@ function Home() {
       <input
         type="text"
         placeholder="Search a Product"
-        className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
+        className="rounded-lg border border-black w-80 p-4 mb-8 focus:outline-none"
         onChange={(event)=> context.setSearchByTitle(event.target.value)}
       />
-      <div className="grid gap-8 grid-cols-4 w-full max-w-screen-lg">
+      <div className="grid gap-8 justify-items-center lg:grid-cols-4 sm:grid-cols-2 w-full max-w-screen-lg ">
         {
           renderViwe()
         }
